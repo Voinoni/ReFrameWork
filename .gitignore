@@ -1,0 +1,6 @@
+.gitignore
+__pycache__/
+api/__pycache__/
+exercises/__pycache__/
+reports/
+tests/__pycache__/
