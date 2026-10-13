@@ -1,0 +1,6 @@
+#exercise_input.py
+pytest
+requests
+pytest-html
+jsonschema
+pyjwt
