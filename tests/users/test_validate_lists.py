@@ -1,9 +1,12 @@
-import requests
+from api.base_api import BaseApi
+
 
 def test_users_list():
 
-    response = requests.get(
-        "https://dummyjson.com/users"
+    api = BaseApi()
+
+    response = api.get(
+        "/users/"
     )
 
     body = response.json()

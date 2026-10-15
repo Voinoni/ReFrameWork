@@ -1,10 +1,12 @@
-import requests
+from api.base_api import BaseApi
 import json
 
 def test_get_user():
 
-    response = requests.get(
-        "https://dummyjson.com/users/1"
+    api = BaseApi()
+
+    response = api.get(
+        "/users/1"
     )
 
     assert response.status_code == 200, (

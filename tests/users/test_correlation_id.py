@@ -1,10 +1,11 @@
-import requests
-
+from api.base_api import BaseApi
 
 def test_correlation_id():
 
-    response = requests.get(
-        "https://dummyjson.com/users/1"
+    api = BaseApi()
+
+    response = api.get(
+        "/users/1"
     )
 
     print(response.headers)

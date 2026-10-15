@@ -1,7 +1,7 @@
-import requests
-
+from api.base_api import BaseApi
 
 def test_user_e2e():
+    api = BaseApi()
 
     # Step 1 - Login
     login_payload = {
@@ -9,9 +9,9 @@ def test_user_e2e():
         "password": "emilyspass"
     }
 
-    login_response = requests.post(
-        "https://dummyjson.com/auth/login",
-        json=login_payload
+    login_response = api.post(
+        "/auth/login",
+        login_payload
     )
 
     assert login_response.status_code == 200
@@ -27,8 +27,8 @@ def test_user_e2e():
         "Authorization": f"Bearer {token}"
     }
 
-    user_response = requests.get(
-        "https://dummyjson.com/auth/me",
+    user_response = api.get(
+        "/auth/me",
         headers=headers
     )
 

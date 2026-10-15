@@ -1,10 +1,11 @@
-import requests
+from api.base_api import BaseApi
 
 
 def test_response_under_1_second():
+    api = BaseApi()
 
-    response = requests.get(
-        "https://dummyjson.com/users/1"
+    response = api.get(
+        "/users/1"
     )
 
     response_time = response.elapsed.total_seconds()

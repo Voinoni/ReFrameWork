@@ -1,8 +1,10 @@
-import requests
+from api.base_api import BaseApi
 
 
 def test_response_time_under_2_seconds():
-    response = requests.get("https://dummyjson.com/users/1")
+    api = BaseApi()
+
+    response = api.get("/users/1")
 
     assert response.status_code == 200
 

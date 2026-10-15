@@ -1,14 +1,14 @@
-import requests
+from api.base_api import BaseApi
 
 def test_login_without_password():
-
-    url = "https://dummyjson.com/auth/login"
+    api = BaseApi()
+    url = "/auth/login"
 
     payload = {
         "email": "peter@klaven"
     }
 
-    response = requests.post(url, json=payload)
+    response = api.post(url, payload)
 
     print(response.status_code)
     print(response.json())

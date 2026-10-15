@@ -1,11 +1,12 @@
-import requests
+from api.base_api import BaseApi
 
 
 def test_quota_simulation():
     successful = 0
+    api = BaseApi()
 
     for _ in range(50):
-        response = requests.get("https://dummyjson.com/users/1")
+        response = api.get("/users/1")
 
         if response.status_code == 200:
             successful += 1

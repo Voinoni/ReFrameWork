@@ -1,17 +1,17 @@
-import requests
+from api.base_api import BaseApi
 import time
 
 
 def test_response_time_under_load():
-
+    api = BaseApi()
     times = []
 
     for _ in range(20):
 
         start = time.time()
 
-        response = requests.get(
-            "https://dummyjson.com/users/1"
+        response = api.get(
+            "/users/1"
         )
 
         end = time.time()

@@ -1,10 +1,11 @@
-import requests
+from api.base_api import BaseApi
 
 
 def test_retry_after_header():
+    api = BaseApi()
 
-    response = requests.get(
-        "https://dummyjson.com/users/1"
+    response = api.get(
+        "/users/1"
     )
 
     if response.status_code == 429:

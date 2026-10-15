@@ -1,15 +1,22 @@
-import requests
+from api.api_client_class import UserApi
+
 
 def test_update_user():
+
+    api = UserApi()
 
     payload = {
         "firstName": "Adam"
     }
 
-    response = requests.put(
-        "https://dummyjson.com/users/1",
-        json=payload
+    response = api.update_user(
+        1,
+        payload
     )
+
+    api = UserApi()
+
+    print(dir(api))
     
     assert response.status_code == 200
 
@@ -18,3 +25,5 @@ def test_update_user():
     print(data)
     print(response.json())
     assert data["firstName"] == "Adam"
+
+    

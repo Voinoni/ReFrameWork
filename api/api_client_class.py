@@ -1,15 +1,36 @@
-import requests
+from api.base_api import BaseApi
 
-class UserApi:
 
-    BASE_URL = "https://dummyjson.com"
+class UserApi(BaseApi):
 
     def get_user(self, user_id):
-        return requests.get(
-            f"{self.BASE_URL}/users/{user_id}"
+
+        return self.get(
+            f"/users/{user_id}"
         )
-    #----------Create Search User API----------#
+
     def search_user(self, search_text):
-        return requests.get(
-        f"{self.BASE_URL}/users/search?q={search_text}"
-    )
+
+        return self.get(
+            f"/users/search?q={search_text}"
+        )
+
+    def create_user(self, payload):
+
+        return self.post(
+            "/users/add",
+            payload
+        )
+
+    def update_user(self, user_id, payload):
+
+        return self.put(
+            f"/users/{user_id}",
+            payload
+        )
+
+    def delete_user(self, user_id):
+
+        return self.delete(
+            f"/users/{user_id}"
+        )

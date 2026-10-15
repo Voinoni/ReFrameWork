@@ -18,3 +18,10 @@ class AuthApi:
             f"{self.BASE_URL}/auth/login",
             json=payload
         )
+    
+    def create_user(self, payload):
+
+        return self.post(
+            "/users/add",
+            payload
+        )

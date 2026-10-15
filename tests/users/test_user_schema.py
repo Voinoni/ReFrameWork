@@ -1,13 +1,15 @@
 # test_schema_validation.py
 
-import requests
+from api.api_client_class import UserApi
 from jsonschema import validate
 
 def test_user_schema():
 
-    response = requests.get(
-        "https://dummyjson.com/users/1"
-    )
+    api = UserApi()
+
+    response = api.get_user(1)
+
+    assert response.status_code == 200
 
     data = response.json()
 

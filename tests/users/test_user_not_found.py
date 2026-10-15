@@ -1,10 +1,11 @@
-import requests
-
+from api.base_api import BaseApi
 
 def test_user_not_found():
 
-    response = requests.get(
-        "https://dummyjson.com/users/999999"
+    api = BaseApi()
+
+    response = api.delete(
+        "/users/999999"
     )
     print(response.status_code)
     print(response.text)
